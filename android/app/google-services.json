@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "681191884407",
+    "project_id": "bizsync-c6a24",
+    "storage_bucket": "bizsync-c6a24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681191884407:android:f3bbe36836ce1cecc76872",
+        "android_client_info": {
+          "package_name": "com.example.bizsync"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "681191884407-8ul142lc8d0h1vcq8iiar8g8ecdqfu8s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bizsync",
+            "certificate_hash": "84e9aac5c03d4d1c8d737b6df07306eb4114df42"
+          }
+        },
+        {
+          "client_id": "681191884407-qt2km4nbmvb0am3knvj1mioe1s2si8cv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDivpnvouFJsoN3MBdoOtDd9TRR9daLXo0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "681191884407-qt2km4nbmvb0am3knvj1mioe1s2si8cv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "681191884407-ejsnsqf1lpt7svfut14kcf97vfnephio.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.bizsync"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
