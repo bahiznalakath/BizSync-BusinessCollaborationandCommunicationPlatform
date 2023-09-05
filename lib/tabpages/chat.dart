@@ -17,10 +17,13 @@ class ChatHomePage extends StatefulWidget {
 class _ChatHomePageState extends State<ChatHomePage> {
   // for storing all users
   List<ChatUser> _list = [];
+
   // for storing searched items
   final List<ChatUser> _searchList = [];
+
   // for storing search status
   bool _isSearching = false;
+
   @override
   void initState() {
     super.initState();
@@ -145,7 +148,7 @@ class _ChatHomePageState extends State<ChatHomePage> {
                 case ConnectionState.done:
                   return StreamBuilder(
                     stream: APIs.getAllUsers(),
-                        // snapshot.data?.docs.map((e) => e.id).toList() ?? []),
+                    // snapshot.data?.docs.map((e) => e.id).toList() ?? []),
 
                     //get only those user, who's ids are provided
                     builder: (context, snapshot) {

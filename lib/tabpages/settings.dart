@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import '../ThemeMode/theme_manager.dart';
+
 class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
 
@@ -16,6 +18,7 @@ class Settings extends StatefulWidget {
 
 class _SettingsState extends State<Settings> {
   List<ChatUser> list = [];
+  ThemeManager _themeManager =ThemeManager();
   bool varNotify1 = true;
   bool varNotify2 = false;
   bool varNotify3 = false;
@@ -25,7 +28,8 @@ class _SettingsState extends State<Settings> {
 
   onchangeFuction1(bool newValue1) {
     setState(() {
-      varNotify1 = newValue1;
+     Switch(value:_themeManager.themeMode== ThemeMode.dark,onChanged: _themeManager.toggleTheme(varNotify2));
+
     });
   }
 

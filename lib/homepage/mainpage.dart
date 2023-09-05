@@ -1,9 +1,11 @@
 import 'package:bizsync/tabpages/calender.dart';
 import 'package:bizsync/tabpages/chat.dart';
-import 'package:bizsync/tabpages/contacts.dart';
+
 import 'package:bizsync/tabpages/meethomepage.dart';
 import 'package:bizsync/tabpages/settings.dart';
 import 'package:flutter/material.dart';
+
+import '../tabpages/contacts.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -18,7 +20,7 @@ class _MainPageState extends State<MainPage> {
   final List<Widget> _pages = [
     MeetHomePage(),
     ChatHomePage(),
-    Contacts(),
+    ContactListPage(),
     CalenderPage(),
     Settings(),
   ];

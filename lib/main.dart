@@ -1,4 +1,6 @@
 import 'package:bizsync/Splashscreen/splashScreen.dart';
+import 'package:bizsync/ThemeMode/theme_constants.dart';
+import 'package:bizsync/ThemeMode/theme_manager.dart';
 import 'package:bizsync/auth/login_screen.dart';
 import 'package:bizsync/helper/utilis/colors.dart';
 import 'package:flutter/material.dart';
@@ -18,13 +20,44 @@ void main() async {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+ThemeManager _themeManager =ThemeManager();
+
+
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void dispose(){
+    _themeManager.removeListener(themeListener);
+    super.dispose();
+  }
+
+  @override
+  void initState(){
+    _themeManager.addListener(themeListener);
+    super.initState();
+  }
+
+  themeListener(){
+    if(mounted){
+      setState((){
+
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'BizSync',
+      theme: lightTheme,
+      darkTheme: darkTheme,
+      themeMode: _themeManager.themeMode,
       // theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: backgroundColor),
       routes: {
         '/': (context)=>  SplashScreen(),

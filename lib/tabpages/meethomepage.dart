@@ -3,10 +3,21 @@ import 'package:bizsync/auth/profile_screen.dart';
 import 'package:bizsync/helper/customButtons/MeetingButton.dart';
 import 'package:flutter/material.dart';
 
-class MeetHomePage extends StatelessWidget {
+
+class MeetHomePage extends StatefulWidget {
+
   MeetHomePage({Key? key}) : super(key: key);
 
+
+
+  static const String gMeet =
+      'https://meet.google.com/iwt-wkvr-ggx';
+
   @override
+  State<MeetHomePage> createState() => _MeetHomePageState();
+}
+
+class _MeetHomePageState extends State<MeetHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -123,20 +134,25 @@ class MeetHomePage extends StatelessWidget {
                             TextEditingController roomIdController =
                                 TextEditingController();
                             return AlertDialog(
-                              title: Text('Create  Room ID'),
-                              // content: TextField(
-                              //   controller: roomIdController,
-                              //   decoration: InputDecoration(
-                              //     hintText: 'Enter Room ID',
-                              //   ),
-                              // ),
+                              title: Text('Create A Room ID'),
+                              content: TextField(
+                                controller: roomIdController,
+                                decoration: InputDecoration(
+                                  hintText: 'Enter Room ID',
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
+                              ),
                               actions: <Widget>[
                                 Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
                                     TextButton(
                                       child: Text('Create New Meeting'),
                                       onPressed: () {
-                                        // Get the room ID and do something with it
+                                            () => (MeetHomePage.gMeet);
+                                         // Get the room ID and do something with it
                                         String roomId = roomIdController.text;
                                         // You can now use the roomId for your meeting logic
                                         print('Room ID: $roomId');
@@ -206,7 +222,10 @@ class MeetHomePage extends StatelessWidget {
                       icon: Icons.add_box_outlined,
                       text: 'Join meeting'),
                   HomeMeetingButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        // Show the permission request pop-up
+                        _showScreenSharingPermissionDialog(context);
+                      },
                       icon: Icons.arrow_upward_rounded,
                       text: 'Share Screen'),
                 ],
@@ -227,6 +246,33 @@ class MeetHomePage extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  void _showScreenSharingPermissionDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Screen Sharing Permission'),
+          content: Text('Do you want to share your screen with others in the meeting?'),
+          actions: <Widget>[
+            TextButton(
+              child: Text('No'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: Text('Yes'),
+              onPressed: () {
+                // Add your screen sharing logic here if permission is granted
+                Navigator.of(context).pop(); // Close the dialog
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }
