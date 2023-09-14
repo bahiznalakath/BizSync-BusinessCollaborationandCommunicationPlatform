@@ -52,8 +52,6 @@ class _ChatHomePageState extends State<ChatHomePage> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: WillPopScope(
-        //if search is on & back button is pressed then close search
-        //or else simple close current screen on back button click
         onWillPop: () {
           if (_isSearching) {
             setState(() {
