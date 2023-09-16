@@ -127,5 +127,3 @@ class _ContactListPageState extends State<ContactListPage> {
   }
 }
 //
-//
-//
